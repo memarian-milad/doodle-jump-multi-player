@@ -1,16 +1,135 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    background-color:#000;
 }
 
-canvas {
-    border: 1px solid black;
+canvas{
+    border:0px solid black;
 }
 
 #main{
-    width:650px;display:flex;justify-content:center;margin: 0px auto;
+    width:650px;
+    display:flex;
+    justify-content:center;
+    margin1:0px auto;
+}
+
+#gameCanvas{
+    background-position:center; /* Center the image */
+    background-repeat:no-repeat; /* Do not repeat the image */
+    background-size:cover; /* Resize the background image to cover the entire container */
+    background-color:rgb(243, 216, 187);
+    background-image: var(--background);
+    /*background-image:url("../img/moon.png");*/
+    /*background-size:100px 100px;*/
+    /*background-repeat:no-repeat;*/
+}
+
+/*.background-1{
+    background-image:url("../img/background/background-1.jpg");
+}
+.background-2{
+    background-image:url("../img/background/background-2.jpg");
+}
+.background-3{
+    background-image:url("../img/background/background-3.jpg");
+}
+.background-4{
+    background-image:url("../img/background/background-4.jpg");
+}*/
+
+/*#gameCanvas:before{
+    content:"";
+    background-image:url("../img/moon.png");
+    width:300px;
+    height:300px;
+}*/
+#scoreCanvas{
+    background:white;
+}
+
+.overlay {
+    background: rgba(50, 50, 50, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-box {
+    background: rgb(243, 216, 187);
+    width: 400px;
+    margin-top: 30vh;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 2px rgba(100, 100, 100, 1);
+}
+
+.form-title {
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin: 10px;
+}
+
+.form-grid {
+    display: grid;
+}
+
+.form-label {
+    grid-column: 1;
+    line-height: 40px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.form-input {
+    grid-column: 2;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 20px;
+}
+
+.character-grid {
+    display: grid;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.character-img {
+    width: 40px;
+    margin: 5px;
+    cursor:pointer;
+}
+
+.button-container {
+    display: grid;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.submit-button {
+    grid-column: 1;
+    background: white;
+    border: 0;
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor:pointer;
+}
+
+.submit-button:hover{
+    background-color:rgb(255,130,0);
+    color:white;
 }
