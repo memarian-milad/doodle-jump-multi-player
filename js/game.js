@@ -25,4 +25,12 @@ class Game{
 		this.scores = {};
 		this.setupEventListeners();
 	}
+
+	sendGameState() {
+		if (this.wsManager.readyState === WebSocket.OPEN) {
+			this.wsManager.sendGameState({ players: this.players, obstacles: this.obstacle.obstacles, scores: this.scores });
+			return true;
+		}
+		return false;
+	}
 }
