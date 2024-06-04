@@ -40,6 +40,10 @@ class Player {
 		this.vy = -5; // Example value, adjust as needed
 	}
 
+	applyGravity() {
+		// Apply gravity logic...
+		this.vy += 0.1; // Example value, adjust as needed
+	}
 
 	updatePosition() {
 		// Update position based on velocity...
