@@ -26,6 +26,17 @@ class Game{
 		this.setupEventListeners();
 	}
 
+	reset() {
+		this.players = {};
+		this.currentPlayer = new Player(this.canvas, userName);
+		this.players[this.currentPlayer.id] = this.currentPlayer;
+		this.obstacle.obstacles = [];
+		this.obstacle.init();
+		this.scores = {};
+		this.scrollOffset = 0;
+		this.isGameOver = false;
+		this.fallSpeed = this.defaultFallSpeed;
+	}
 
 	update() {
 		this.updateScores();
