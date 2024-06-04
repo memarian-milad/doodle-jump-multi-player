@@ -26,6 +26,11 @@ class Game{
 		this.setupEventListeners();
 	}
 
+	init() {
+		this.reset();
+		this.gameLoop();
+	}
+
 	reset() {
 		this.players = {};
 		this.currentPlayer = new Player(this.canvas, userName);
@@ -112,6 +117,18 @@ class Game{
 				this.currentPlayer.updatePosition();
 			}
 		});
+	}
+
+	resetGame() {
+		// Reset player positions
+		const oldPlayerID = this.currentPlayer.id;
+		this.currentPlayer = new Player(this.canvas, oldPlayerID);
+		this.players[this.currentPlayer.id] = this.currentPlayer;
+		this.scores[this.currentPlayer.id] = 0;
+		// Reset game over status
+		this.isGameOver = false;
+		this.fallSpeed = this.defaultFallSpeed;
+		this.setupEventListeners();
 	}
 
 	drawScores() {
