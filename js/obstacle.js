@@ -18,6 +18,14 @@ class Obstacle {
 		}
 	}
 
+	checkCollision(player) {
+		return this.obstacles.some(obstacle => {
+			const playerIsAboveObstacle = player.y >= obstacle.y - 31 && player.y <= obstacle.y - 26;
+			const playerIsAlignedWithObstacle = player.x <= obstacle.x + obstacle.width && player.x + 30 >= obstacle.x;
+			return playerIsAboveObstacle && playerIsAlignedWithObstacle;
+		});
+	}
+
 	drawObstacles() {
 		// this.ctx.fillStyle = 'red';
 		var img1=new Image();
