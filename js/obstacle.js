@@ -17,6 +17,19 @@ class Obstacle {
 			this.obstacles.push(this.createObstacle(i));
 		}
 	}
+
+	drawObstacles() {
+		// this.ctx.fillStyle = 'red';
+		var img1=new Image();
+		img1.src="img/obstacle.png";
+		const pattern = this.ctx.createPattern(img1, 'repeat');
+		this.obstacles.forEach(obstacle => {
+			// this.ctx.fillStyle = pattern;
+			this.ctx.drawImage(img1, obstacle.x, obstacle.y - this.scrollOffset, obstacle.width, obstacle.height);
+			// this.ctx.fillRect(obstacle.x, obstacle.y - this.scrollOffset, obstacle.width, obstacle.height);
+		});
+	}
+
 	createObstacle(index) {
 		const height = 20;
 		const y = 40 * index - height;
