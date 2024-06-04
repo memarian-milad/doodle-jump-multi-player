@@ -44,6 +44,16 @@ class Game{
 			yOffset += 20;
 		}
 	}
+
+	updateScores() {
+		for (let id in this.players) {
+			if (!this.scores[id]) {
+				this.scores[id] = 0;
+			}
+			this.scores[id] += 1;
+		}
+	}
+
 	sendGameState() {
 		if (this.wsManager.readyState === WebSocket.OPEN) {
 			this.wsManager.sendGameState({ players: this.players, obstacles: this.obstacle.obstacles, scores: this.scores });
