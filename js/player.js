@@ -11,6 +11,11 @@ class Player {
 		this.y = this.startPlayerPos_y;
 		this.vy = 0;
 	}
+
+	getAllPlayers() {
+		return this.players;
+	}
+
 	generateId() {
 		return '_' + Math.random().toString(36).substr(2, 9);
 	}
