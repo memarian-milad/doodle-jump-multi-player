@@ -24,4 +24,25 @@ class Player {
 		return "img/characters/character-" + characterCode + ".png";
 	}
 
+	moveLeft() {
+		// Move left logic...
+		this.x = Math.max(this.x - 3, 0);
+	}
+
+	moveRight(canvasWidth) {
+		// Move right logic...
+		this.x = Math.min(this.x + 3, canvasWidth - 3);
+	}
+
+	jump() {
+		// Jump logic...
+		// Adjust vy to give the player a jump effect
+		this.vy = -5; // Example value, adjust as needed
+	}
+
+
+	updatePosition() {
+		// Update position based on velocity...
+		this.y += this.vy;
+	}
 }
