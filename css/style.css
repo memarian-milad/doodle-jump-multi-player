@@ -19,35 +19,13 @@ canvas{
 }
 
 #gameCanvas{
-    background-position:center; /* Center the image */
-    background-repeat:no-repeat; /* Do not repeat the image */
-    background-size:cover; /* Resize the background image to cover the entire container */
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
     background-color:rgb(243, 216, 187);
     background-image: var(--background);
-    /*background-image:url("../img/moon.png");*/
-    /*background-size:100px 100px;*/
-    /*background-repeat:no-repeat;*/
 }
 
-/*.background-1{
-    background-image:url("../img/background/background-1.jpg");
-}
-.background-2{
-    background-image:url("../img/background/background-2.jpg");
-}
-.background-3{
-    background-image:url("../img/background/background-3.jpg");
-}
-.background-4{
-    background-image:url("../img/background/background-4.jpg");
-}*/
-
-/*#gameCanvas:before{
-    content:"";
-    background-image:url("../img/moon.png");
-    width:300px;
-    height:300px;
-}*/
 #scoreCanvas{
     background:white;
 }
