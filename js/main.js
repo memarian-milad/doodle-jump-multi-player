@@ -1,8 +1,12 @@
 var userName = "";
 var character = "";
 window.addEventListener ( 'DOMContentLoaded' , () => {
+	const canvas = document.getElementById ( 'gameCanvas' );
 	this.LoadUserInfo ();
 	this.GetUserInfo ();
+	document.getElementById ( "submit-button" ).addEventListener ( 'click' , function (){
+		theme ( canvas );
+	} );
 } );
 
 
@@ -27,4 +31,10 @@ function GetUserInfo ()
 			document.getElementById ( "character" ).value = this.getAttribute ( "data-code" );
 		} );
 	} );
+}
+
+function theme ( canvas )
+{
+	const backgroundCode = Math.floor ( Math.random () * (5 - 1) + 1 );
+	document.documentElement.style.setProperty ( '--background' , `url(../img/background/background-${backgroundCode}.jpg)` );
 }
