@@ -26,6 +26,19 @@ class Game{
 		this.setupEventListeners();
 	}
 
+	setupEventListeners() {
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'ArrowLeft') {
+				this.currentPlayer.moveLeft();
+			} else if (event.key === 'ArrowRight') {
+				this.currentPlayer.moveRight(this.canvas.width);
+			}
+			else if (this.currentPlayerIsOverObsacle && event.code == 'Space') {
+				this.currentPlayer.jump();
+				this.currentPlayer.updatePosition();
+			}
+		});
+	}
 
 	drawScores() {
 		this.scoreCtx.clearRect(0, 0, this.scoreCanvas.width, this.scoreCanvas.height);
