@@ -6,6 +6,7 @@ window.addEventListener ( 'DOMContentLoaded' , () => {
 	this.GetUserInfo ();
 	document.getElementById ( "submit-button" ).addEventListener ( 'click' , function (){
 		theme ( canvas );
+		const obstacle = new Obstacle ( canvas );
 	} );
 } );
 
