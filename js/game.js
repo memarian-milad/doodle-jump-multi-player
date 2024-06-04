@@ -26,6 +26,23 @@ class Game{
 		this.setupEventListeners();
 	}
 
+
+	drawPlayers() {
+		for (let id in this.players) {
+			const player = this.players[id];
+			if(player.characterImage && player.characterImage != "")
+			{
+				var characterImage = new Image();
+				characterImage.src=player.characterImage;
+				this.ctx.drawImage(characterImage, player.x, player.y - this.scrollOffset, 30, 30);
+			}
+			else
+			{
+				this.ctx.fillStyle = player.color;
+				this.ctx.fillRect(player.x, player.y - this.scrollOffset, 20, 20);
+			}
+		}
+	}
 	setupEventListeners() {
 		document.addEventListener('keydown', (event) => {
 			if (event.key === 'ArrowLeft') {
