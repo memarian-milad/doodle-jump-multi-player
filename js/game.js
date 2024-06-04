@@ -26,6 +26,24 @@ class Game{
 		this.setupEventListeners();
 	}
 
+
+	drawScores() {
+		this.scoreCtx.clearRect(0, 0, this.scoreCanvas.width, this.scoreCanvas.height);
+		this.scoreCtx.fillStyle = 'black';
+		this.scoreCtx.font = '16px Arial';
+		let yOffset = 20;
+		for (let id in this.scores) {
+			const playerColor = this.players[id].color;
+			this.scoreCtx.shadowColor = 'gray';
+			this.scoreCtx.shadowBlur = 10;
+			this.scoreCtx.shadowOffsetX = 0;
+			this.scoreCtx.shadowOffsetY = 0;
+			this.scoreCtx.fillStyle = playerColor;
+			const scoreText = `Player ${id.substring(0, 5)}: ${this.scores[id]}`;
+			this.scoreCtx.fillText(scoreText, 15, yOffset);
+			yOffset += 20;
+		}
+	}
 	sendGameState() {
 		if (this.wsManager.readyState === WebSocket.OPEN) {
 			this.wsManager.sendGameState({ players: this.players, obstacles: this.obstacle.obstacles, scores: this.scores });
