@@ -5,8 +5,15 @@ window.addEventListener ( 'DOMContentLoaded' , () => {
 	this.LoadUserInfo ();
 	this.GetUserInfo ();
 	document.getElementById ( "submit-button" ).addEventListener ( 'click' , function (){
+		userName = document.getElementById ( "name" ).value;
+		localStorage.setItem("userName", userName);
+		document.getElementById ( "form" ).remove ();
 		theme ( canvas );
+		const scoreCanvas = document.getElementById ( 'scoreCanvas' );
 		const obstacle = new Obstacle ( canvas );
+		const wsManager = new WebSocketManager ( 'ws://localhost:8080' );
+		const game = new Game ( canvas , scoreCanvas , obstacle , wsManager );
+		game.init ();
 	} );
 } );
 
