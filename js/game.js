@@ -27,6 +27,19 @@ class Game{
 	}
 
 
+	update() {
+		this.updateScores();
+		this.obstacle.updateObstacles();
+	}
+
+	draw() {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.obstacle.drawObstacles();
+		this.drawPlayers();
+		this.drawScores();
+	}
+
+
 	drawPlayers() {
 		for (let id in this.players) {
 			const player = this.players[id];
