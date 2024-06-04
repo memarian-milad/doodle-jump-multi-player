@@ -43,6 +43,29 @@ class Game{
 			}
 		}
 	}
+
+	playerAction() {
+		if (this.currentPlayer) {
+			if (this.currentPlayer.y > this.canvas.height - 20) {
+				// Player hit the bottom of the canvas
+				this.isGameOver = true;
+				this.resetGame();
+				return;
+			}
+			if (this.obstacle.checkCollision(this.currentPlayer)) {
+				this.currentPlayerIsOverObsacle = true;
+				this.currentPlayer.y += this.obstacle.obstacleFallSpeed;
+			}
+			else
+			{
+				this.currentPlayerIsOverObsacle = false;
+				this.currentPlayer.applyGravity();
+				this.currentPlayer.updatePosition();
+				(this.maxFallSpeed > this.fallSpeed) ? this.fallSpeed += this.increaseFallSpeed : false;
+			}
+		}
+	}
+
 	setupEventListeners() {
 		document.addEventListener('keydown', (event) => {
 			if (event.key === 'ArrowLeft') {
