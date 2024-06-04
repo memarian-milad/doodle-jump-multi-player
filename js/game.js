@@ -44,6 +44,16 @@ class Game{
 		}
 	}
 
+	gameLoop() {
+		if (!this.isGameOver) {
+			this.update();
+			this.draw();
+			this.playerAction();
+			requestAnimationFrame(() => this.gameLoop());
+			this.sendGameState();
+		}
+	}
+
 	playerAction() {
 		if (this.currentPlayer) {
 			if (this.currentPlayer.y > this.canvas.height - 20) {
