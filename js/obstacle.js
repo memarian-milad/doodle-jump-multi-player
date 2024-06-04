@@ -50,5 +50,18 @@ class Obstacle {
 		};
 	}
 
+
+	updateObstacles() {
+		this.obstacles.forEach(obstacle => {
+			obstacle.y += this.obstacleFallSpeed;
+			if (this.obstacleMaxFallSpeed > this.obstacleFallSpeed) {
+				this.obstacleFallSpeed += 0.1;
+			}
+			if (obstacle.y - 10 > this.canvas.height) {
+				obstacle.y = -obstacle.height;
+				obstacle.x = (Math.random() * 400 - 50);
+				obstacle.x = Math.max(0, Math.min(obstacle.x, this.canvas.width - 60));
+			}
+		});
 	}
 }
